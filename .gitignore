@@ -122,5 +122,6 @@ $RECYCLE.BIN/
 
 #My ignore Files
 DBConnector.java
+DBConnectionTest.java
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java
