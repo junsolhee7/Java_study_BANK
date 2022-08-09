@@ -6,11 +6,14 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	Hello world!
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-<a href="./"></a>
+<a href="./member/login">login</a>
+<a href="./member/join">join</a>
+<a href="./bankbook/detail?booknum=2">Detail</a>
+<a href="./bankbook/add">Enroll</a>
 
 </body>
 </html>

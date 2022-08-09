@@ -29,6 +29,8 @@ public class BankMembersDAO {
 		st.setString(5, bankMembersDTO.getPhone());
 		
 		//5.전송후 결과처리
+
+		
 		System.out.println("성공 전");
 		int result = st.executeUpdate();
 		System.out.println("성공 후");
