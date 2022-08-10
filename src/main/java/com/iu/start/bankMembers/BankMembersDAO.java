@@ -42,7 +42,6 @@ public class BankMembersDAO {
 	}
 	public ArrayList<BankMembersDTO> getSearchByID(String search) throws Exception{
 		ArrayList<BankMembersDTO> ar = new ArrayList<BankMembersDTO>();
-		
 		Connection con = DBConnector.getConnection();
 		String sql = "SELECT * FROM BANKMEMBERS WHERE USERNAME LIKE ? ORDER BY USERNAME ASC";
 		PreparedStatement st = con.prepareStatement(sql);

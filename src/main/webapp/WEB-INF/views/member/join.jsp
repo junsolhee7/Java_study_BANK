@@ -6,24 +6,27 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+
 <body>
-	<h1>Join Page</h1>>
-    <a href="../">index</a>
-	
-	<hr>
-	
-    <div>
-   	 <form action="join" method="post">
-   		 <div class = "container">
-       		 아이디 <input type="text" name = "userName"> <br>
-       		 비밀번호 <input type="text" name="passWord" > <br>
-       		 이름 <input type="text" name="name" > <br>
-       		 이메일 <input type="text" name="email" > <br>
-       		 휴대폰번호 <input type="text" name = "phone"><br>
-       		 <input type="submit" value="등록">
-        	<input type="reset" value="초기화">
-       	 </div>
-   	 </form>
+	<h1>Join page</h1>
+    <div class="container">
+        <form action="join" method="post" >
+            <h4>아이디</h4>
+            <input type="text" name="userName">
+            <h4>비밀번호</h4>
+            <input type="password" name="passWord">
+            <h4>이름</h4>
+            <input type="text" name="name">
+            <h4>본인 확인 이메일 <span>(선택)</span></h4>
+            <input type="email" name="email">
+            <h4>휴대전화</h4>
+            <div>
+                <input type="number" name="phone" placeholder="전화번호 입력">
+            </div>
+            <div>
+                <input type = "submit" value="가입하기">
+            </div>
+        </form>
     </div>
 </body>
 </html>

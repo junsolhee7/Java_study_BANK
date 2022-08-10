@@ -1,7 +1,7 @@
 <%@page import="com.iu.start.bankBook.BankBookDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% 	BankBookDTO bankBookDTO = (BankBookDTO)request.getAttribute("DTO"); %>
+<% 	BankBookDTO bankBookDTO = (BankBookDTO)request.getAttribute("dto"); %>
     
 <!DOCTYPE html>
 <html>

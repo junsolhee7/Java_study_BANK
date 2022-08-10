@@ -42,6 +42,7 @@ public class MemberController {
 		System.out.println("join Get 실행");
 		
 		return "member/join";
+		
 	}
 	
 	
@@ -88,7 +89,7 @@ public class MemberController {
 	
 	@RequestMapping(value="search", method=RequestMethod.POST)
 	public String getSearchByID(String search, Model model) throws Exception{
-		System.out.println("search get 실행");
+		System.out.println("search POST 실행");
 		
 		BankMembersDAO bankMembersDAO = new BankMembersDAO();
 		ArrayList<BankMembersDTO> ar = bankMembersDAO.getSearchByID(search);

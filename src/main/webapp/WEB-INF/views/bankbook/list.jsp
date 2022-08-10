@@ -33,7 +33,6 @@
 		<tbody>
 			<% for(BankBookDTO bankBookDTO : ar){ %>
 				<tr>
-				
 					<td><a href = "./detail?bookNum=<%= bankBookDTO.getBookNum()%>"><%= bankBookDTO.getBookName() %></a></td>
 					<td><%= bankBookDTO.getBookRate() %></td>
 				</tr>

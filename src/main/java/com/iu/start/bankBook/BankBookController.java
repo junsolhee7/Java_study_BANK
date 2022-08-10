@@ -18,18 +18,19 @@ public class BankBookController {
 	public String list(Model model) throws Exception{
 		System.out.println("list 실행");
 		BankBookDAO bankBookDAO = new BankBookDAO();
-		//DB 없으신 분들
-		ArrayList<BankBookDTO> ar = new ArrayList<BankBookDTO>();
-		for(int i=0;i<10;i++) {
-			BankBookDTO bankBookDTO = new BankBookDTO();
-			bankBookDTO.setBookName("bookName"+i);
-			bankBookDTO.setBookNum((long)i);
-			bankBookDTO.setBookRate(Math.random());
-			bankBookDTO.setBookSale(1);
-			ar.add(bankBookDTO);
-		}
 		
-//		ArrayList<BankBookDTO> ar = bankBookDAO.getList();
+//		//DB 없으신 분들
+//		ArrayList<BankBookDTO> ar = new ArrayList<BankBookDTO>();
+//		for(int i=0;i<10;i++) {
+//			BankBookDTO bankBookDTO = new BankBookDTO();
+//			bankBookDTO.setBookName("bookName"+i);
+//			bankBookDTO.setBookNum((long)i);
+//			bankBookDTO.setBookRate(Math.random());
+//			bankBookDTO.setBookSale(1);
+//			ar.add(bankBookDTO);
+//		}
+		
+		ArrayList<BankBookDTO> ar = bankBookDAO.getList();
 		model.addAttribute("list", ar);
 		
 		return "bankbook/list";
@@ -64,7 +65,10 @@ public class BankBookController {
 	@RequestMapping(value="add", method=RequestMethod.POST)
 	public ModelAndView add(BankBookDTO bankBookDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		BankBookDAO bankBookDAO = new BankBookDAO();
+		
 		System.out.println("add POST 실행");
+		int result = bankBookDAO.setBankBook(bankBookDTO);
 		System.out.println(bankBookDTO.getBookName());
 		System.out.println(bankBookDTO.getBookRate());
 		mv.setViewName("redirect:./list");

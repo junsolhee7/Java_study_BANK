@@ -5,14 +5,22 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import com.iu.start.bankMembers.BankMembersDTO;
 import com.iu.start.util.DBConnector;
 	
 	public class BankBookDAO implements BookDAO {
-
+		
 		@Override
 		public int setBankBook(BankBookDTO bankBookDTO) throws Exception {
-			// TODO Auto-generated method stub
-			return 0;
+			Connection con = DBConnector.getConnection();
+			String sql = "INSERT INTO BANKBOOK VALUES(0,?,?,0)";
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1,bankBookDTO.getBookName());
+			st.setDouble(2,bankBookDTO.getBookRate());
+			int result = st.executeUpdate();
+			DBConnector.disConnect(st, con);
+			return result;
+			
 		}
 
 		@Override
