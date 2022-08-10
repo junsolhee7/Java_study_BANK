@@ -8,7 +8,10 @@
 </head>
 <body>
 	<h1>Login Page</h1>
+    <a href="../">index</a>
+    
 	<hr>
+    
     <div>
   	  <form action="./login" method="post">
         아이디 <input type="text" name="id"> <br>
@@ -17,8 +20,5 @@
       </form>
     </div>
 
-    <div>
-        <a href="../index.html">index</a>
-    </div>
 </body>
 </html>

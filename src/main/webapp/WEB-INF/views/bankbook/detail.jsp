@@ -10,7 +10,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>BankBook Detail</h1>
+	<h1>Detail Page</h1>
+	<a href="../">index</a>
+	<a href="./list">리스트 보기</a>
+	<hr>
 	
 	<!-- 상대경로 -->
 	<a href="../member/login">Login</a>

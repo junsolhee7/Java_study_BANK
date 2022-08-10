@@ -8,7 +8,10 @@
 </head>
 <body>
 	<h1>Join Page</h1>>
+    <a href="../">index</a>
+	
 	<hr>
+	
     <div>
    	 <form action="join" method="post">
    		 <div class = "container">
@@ -22,6 +25,5 @@
        	 </div>
    	 </form>
     </div>
-    <a href="../">index</a>
 </body>
 </html>

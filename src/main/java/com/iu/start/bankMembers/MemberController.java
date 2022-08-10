@@ -1,8 +1,11 @@
 package com.iu.start.bankMembers;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -16,15 +19,19 @@ public class MemberController {
 	// @ : 설명+실행
 	
 	// /member/login //절대경로작성
-	@RequestMapping(value = "login")
-	
+	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public String  login() {
-		
 		System.out.println("login 실행");
-		
 		return "member/login";
-		
 	}
+	
+	@RequestMapping(value = "login", method = RequestMethod.POST)
+	public String  login(BankMembersDTO bankMembersDTO) {
+		System.out.println("DB에 login 실행");
+		//"Redirect:다시접속할URL주소(절대경로,상대경로)"
+		return "redirect:../";
+	}
+
 	
 	//join  /member/join //Get
 	
@@ -64,7 +71,33 @@ public class MemberController {
 		System.out.println((bankMembersDTO.getUserName()));
 		System.out.println(result==1);
 		
-		return "member/join";
+		return "redirect:./login";
 	}
+	
+//	@RequestMapping(value="search", method=RequestMethod.POST)
+//	public String search(String userName) {
+//		System.out.println("search POST 실행");
+//		System.out.println("userName: "+userName);
+//		return "member/list";
+//	} //내가작성한코드
+	
+	@RequestMapping(value="search", method=RequestMethod.GET)
+	public void getSearchByID() throws Exception{
+		System.out.println("search get 실행");	
+	}
+	
+	@RequestMapping(value="search", method=RequestMethod.POST)
+	public String getSearchByID(String search, Model model) throws Exception{
+		System.out.println("search get 실행");
+		
+		BankMembersDAO bankMembersDAO = new BankMembersDAO();
+		ArrayList<BankMembersDTO> ar = bankMembersDAO.getSearchByID(search);
+		model.addAttribute("list",ar);
+		
+		return "member/list";
+	}
+	
+
+	
 	
 }

@@ -8,17 +8,23 @@
 </head>
 <body>
 
-<h1>Enroll Page</h1>
+<h1>Add page</h1>
+<a href="../">index</a>
 <hr>
 <div>
-	<form action="list" method="post">
+	<form action="./add" method="post">
 		<div class="container">
-			bookNum<input type="text" name="bookNum"> <br>
-			bookName<input type="text" name="bookName"> <br>
-			bookRate<input type="text" name="bookRate"> <br>
-			bookSale<input type="text" name="bookSale"> <br>
-			<input type="submit" value="등록">
-			<input type="reset" value="초기화">
+			<div>
+				bookName : <input type="text" name="bookName"> <br>
+			</div>
+			<div>
+				bookRate : <input type="text" name="bookRate"> <br>
+			</div>
+			<div>
+				<input type="submit" value="Create">
+				<button type="submit">Add</button> 
+				<input type="reset" value="초기화">
+			</div>
 		</div>
 	</form>
 </div>

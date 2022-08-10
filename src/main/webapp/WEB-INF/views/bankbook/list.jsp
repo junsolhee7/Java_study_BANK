@@ -17,6 +17,9 @@
 </head>
 <body>
 	<h1>BankBook List</h1>
+	
+	<a href="../">index</a>
+	<hr>
 	<!-- /bankbook/list -->
 	
 	<!-- /bankbook/detail jsp : detail.jsp  link주소는 상대경로 -->
@@ -37,7 +40,6 @@
 			<%} %>
 		</tbody>
 	</table>
-	
-	<a href="./detail">BankBook Detail</a>
+	<a href="./add">상품등록</a>
 </body>
 </html>
