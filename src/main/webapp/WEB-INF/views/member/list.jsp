@@ -17,7 +17,6 @@
 		<thead>
 			<tr>
 				<th>userName</th>
-				<th>passWord</th>
 				<th>name</th>
 				<th>email</th>
 				<th>phone</th> 
