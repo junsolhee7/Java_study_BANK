@@ -26,10 +26,17 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String  login(BankMembersDTO bankMembersDTO) {
+	public String  login(BankMembersDTO bankMembersDTO, Model model) throws Exception{
 		System.out.println("DB에 login 실행");
+		
+		BankMembersDAO bankMembersDAO = new BankMembersDAO();
+		bankMembersDTO = bankMembersDAO.getLogin(bankMembersDTO);
+		System.out.println(bankMembersDTO+"ㅇㅅㅇ");
+		model.addAttribute("member",bankMembersDTO);
+		
+		
 		//"Redirect:다시접속할URL주소(절대경로,상대경로)"
-		return "redirect:../";
+		return "home";
 	}
 
 	
