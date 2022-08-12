@@ -12,7 +12,7 @@
 	<hr>
 	
 	
-		<form action="./search" method="post">
+		<form action="./search.iu" method="post">
 		ID 검색 :<input type="text" name="search">
 				<button type="submint">Search</button>
 		</form>

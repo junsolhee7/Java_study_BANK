@@ -13,9 +13,9 @@
 	<hr>
     
     <div>
-  	  <form action="./login" method="post">
-        아이디 <input type="text" name="userName"> <br>
-        비밀번호 <input type="password" name="passWord">  <br>
+  	  <form action="./login.iu" method="post">
+        아이디 <input type="text" name="userName" value="제이스"> <br>
+        비밀번호 <input type="password" name="passWord" value="1234">  <br>
         <input type="submit" value="로그인">
       </form>
     </div>

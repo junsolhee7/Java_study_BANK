@@ -12,7 +12,7 @@
 <a href="../">index</a>
 <hr>
 <div>
-	<form action="./add" method="post">
+	<form action="./add.iu" method="post">
 		<div class="container">
 			<div>
 				bookName : <input type="text" name="bookName"> <br>

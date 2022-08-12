@@ -3,6 +3,7 @@ package com.iu.start.bankMembers;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,32 +18,40 @@ public class MemberController {
 
 	// annotation
 	// @ : 설명+실행
+	@RequestMapping(value="logout.iu", method=RequestMethod.GET)
+	public String logout(HttpSession session) throws Exception{
+		session.invalidate();
+		
+		return("redirect:../");
+	}
 	
 	// /member/login //절대경로작성
-	@RequestMapping(value = "login", method = RequestMethod.GET)
+	@RequestMapping(value = "login.iu", method = RequestMethod.GET)
 	public String  login() {
 		System.out.println("login 실행");
 		return "member/login";
 	}
 	
-	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String  login(BankMembersDTO bankMembersDTO, Model model) throws Exception{
+	@RequestMapping(value = "login.iu", method = RequestMethod.POST)
+	public String  login(HttpSession session, BankMembersDTO bankMembersDTO, Model model) throws Exception{
 		System.out.println("DB에 login 실행");
 		
 		BankMembersDAO bankMembersDAO = new BankMembersDAO();
 		bankMembersDTO = bankMembersDAO.getLogin(bankMembersDTO);
-		System.out.println(bankMembersDTO+"ㅇㅅㅇ");
-		model.addAttribute("member",bankMembersDTO);
+		System.out.println(bankMembersDTO);
+//		request.getSession();//자기보다오래사는객체
+//		HttpSession session = request.getSession();
 		
+		session.setAttribute("member",bankMembersDTO);
 		
 		//"Redirect:다시접속할URL주소(절대경로,상대경로)"
-		return "home";
+		return "redirect:../";
 	}
 
 	
 	//join  /member/join //Get
 	
-	@RequestMapping(value = "join", method = RequestMethod.GET)
+	@RequestMapping(value = "join.iu", method = RequestMethod.GET)
 	
 	public String join() {
 		
@@ -54,7 +63,7 @@ public class MemberController {
 	
 	
 	// /member/join //Post
-	@RequestMapping(value = "join", method = RequestMethod.POST)
+	@RequestMapping(value = "join.iu", method = RequestMethod.POST)
 	
 //	public String join(HttpServletRequest request) throws Exception{
 	public String join(BankMembersDTO bankMembersDTO) throws Exception{
@@ -79,7 +88,7 @@ public class MemberController {
 		System.out.println((bankMembersDTO.getUserName()));
 		System.out.println(result==1);
 		
-		return "redirect:./login";
+		return "redirect:./login.iu";
 	}
 	
 //	@RequestMapping(value="search", method=RequestMethod.POST)
@@ -89,12 +98,12 @@ public class MemberController {
 //		return "member/list";
 //	} //내가작성한코드
 	
-	@RequestMapping(value="search", method=RequestMethod.GET)
+	@RequestMapping(value="search.iu", method=RequestMethod.GET)
 	public void getSearchByID() throws Exception{
 		System.out.println("search get 실행");	
 	}
 	
-	@RequestMapping(value="search", method=RequestMethod.POST)
+	@RequestMapping(value="search.iu", method=RequestMethod.POST)
 	public String getSearchByID(String search, Model model) throws Exception{
 		System.out.println("search POST 실행");
 		
