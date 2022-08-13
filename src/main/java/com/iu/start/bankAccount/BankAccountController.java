@@ -21,10 +21,9 @@ public class BankAccountController {
 	@RequestMapping(value="add.iu", method=RequestMethod.GET)
 	public String add(BankAccountDTO bankAccountDTO, HttpSession session) throws Exception{
 		System.out.println("BankAccount Add");
-		System.out.println(bankAccountDTO.getBookNum());
 		BankMembersDTO bankMembersDTO = (BankMembersDTO)session.getAttribute("member");
-		bankAccountDTO.setUserName(bankMembersDTO.getUserName());
 		
+		bankAccountDTO.setUserName(bankMembersDTO.getUserName());
 		
 		//DTO : userName(session), BookNum(parameter) 
 		int result = this.bankAccountDAO.add(bankAccountDTO);
