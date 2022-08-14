@@ -27,6 +27,7 @@
 <a href="./bankbook/list.iu">리스트</a>
 <!-- <a href="./bankbook/detail?booknum=2">Detail</a> -->
 <a href="./bankbook/add.iu">Add</a>
+<a href="./board/list.gg">게시판 보기</a>
 
 </body>
 </html>
