@@ -5,7 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import com.iu.start.test.DBConnector;
+import com.iu.start.util.DBConnector;
+
 
 public class BoardDAO {
 
