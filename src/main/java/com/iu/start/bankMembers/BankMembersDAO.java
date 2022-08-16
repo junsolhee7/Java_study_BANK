@@ -6,33 +6,31 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.iu.start.util.DBConnector;
 
+
+//@Autowired
+//private BankMembersDAO bankMembersDAO
+
+@Repository
 public class BankMembersDAO {
 	
+	@Autowired
+	private SqlSession sqlSession;
+	private final String NAMESPACE ="com.iu.start.bankMembers.BankMembersDAO.";  
+	
 	public BankMembersDTO getLogin(BankMembersDTO bankMembersDTO) throws Exception{
-		Connection con = DBConnector.getConnection();
-		String sql = "SELECT USERNAME, NAME FROM BANKMEMBERS WHERE USERNAME=? AND PASSWORD=?";
-		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1,bankMembersDTO.getUserName());
-		st.setString(2,bankMembersDTO.getPassWord());
-		ResultSet rs=st.executeQuery();
 		
-		if(rs.next()) {
-			bankMembersDTO = new BankMembersDTO();
-			bankMembersDTO.setUserName(rs.getString("USERNAME"));
-			bankMembersDTO.setName(rs.getString("NAME"));
-		} else {
-			bankMembersDTO=null;
-			//return null;
-		}
-		return bankMembersDTO;
+		return sqlSession.selectOne(NAMESPACE+"getLogin", bankMembersDTO);
 	}
 	
 	public int setJoin(BankMembersDTO bankMembersDTO) throws Exception{
 		//1.DB 연결
 		Connection con = DBConnector.getConnection();
-
 		
 		//2.sql 작성
 		String sql = "INSERT INTO BANKMEMBERS VALUES(?,?,?,?,?)";
@@ -49,7 +47,6 @@ public class BankMembersDAO {
 		
 		//5.전송후 결과처리
 
-		
 		System.out.println("성공 전");
 		int result = st.executeUpdate();
 		System.out.println("성공 후");

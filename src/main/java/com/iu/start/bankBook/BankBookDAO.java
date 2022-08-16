@@ -6,9 +6,13 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
+
 import com.iu.start.bankMembers.BankMembersDTO;
 import com.iu.start.util.DBConnector;
 	
+	@Repository("bookDAO")
 	public class BankBookDAO implements BookDAO {
 		
 		public int setDelete(BankBookDTO bankBookDTO)throws Exception{
